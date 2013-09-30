@@ -1,4 +1,7 @@
 module NinetyNine where
 
-myLast _:xs = myLast xs
-myLast x:[] = x
+myLast :: [a] -> a
+myLast (x:xs) = case (x, xs) of
+  (_, [])   -> x
+  (_, y:ys) -> myLast ys
+  
